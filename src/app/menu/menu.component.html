@@ -1,0 +1,9 @@
+<div class="menu">
+  <p class="left" (click)="toggleModal()">Menu Left</p>
+  <ul class="right menu">
+    <li>partager</li>
+    <li>voter</li>
+    <li (click)="toggleModal()">menu</li>
+  </ul>
+</div>
+<app-menu-modal *ngIf="isModalOpen"></app-menu-modal>
