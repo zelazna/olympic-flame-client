@@ -1,0 +1,22 @@
+.content-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left{
+  background-color: blue;
+  flex-grow:0.75;
+  width: 15%;
+}
+
+.center{
+  background-color: green;
+  flex-grow: 2;
+  width: 60%
+}
+
+.right{
+  background-color: grey;
+  flex-grow: 1.25;
+  width: 25%;
+}

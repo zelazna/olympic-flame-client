@@ -32,6 +32,7 @@ body {
   line-height: 1;
   background-color: black;
   color: white;
+  font-family: Montserrat;
 }
 ol, ul {
 	list-style: none;
@@ -48,5 +49,4 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 

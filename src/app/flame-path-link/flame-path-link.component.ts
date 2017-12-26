@@ -7,8 +7,7 @@ import { FlamePath } from '../models';
   styleUrls: ['./flame-path-link.component.css']
 })
 export class FlamePathLinkComponent implements OnInit {
-  @Input()
-  path: FlamePath;
+  @Input() path: FlamePath;
   constructor() { }
 
   ngOnInit() {

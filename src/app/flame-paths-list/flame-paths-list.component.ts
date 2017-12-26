@@ -11,7 +11,6 @@ import { ALL_PATH_QUERY, AllPathQueryResponse } from '../graphql';
 export class FlamePathsListComponent implements OnInit {
   allPaths: FlamePath[] = [];
   loading = true;
-
   constructor(private apollo: Apollo) { }
 
   ngOnInit() {
