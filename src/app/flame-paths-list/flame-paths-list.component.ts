@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
 import { FlamePath } from '../models';
-import { ALL_PATH_QUERY, AllPathQueryResponse } from '../graphql';
+import { PathService } from '../services/path/path.service';
 
 @Component({
   selector: 'app-flame-paths-list',
@@ -11,12 +10,10 @@ import { ALL_PATH_QUERY, AllPathQueryResponse } from '../graphql';
 export class FlamePathsListComponent implements OnInit {
   allPaths: FlamePath[] = [];
   loading = true;
-  constructor(private apollo: Apollo) { }
+  constructor(private pathService: PathService) { }
 
   ngOnInit() {
-    this.apollo.watchQuery<AllPathQueryResponse>({
-      query: ALL_PATH_QUERY
-    }).valueChanges.subscribe((response) => {
+    this.pathService.getAllPaths().valueChanges.subscribe((response) => {
       this.allPaths = response.data.allFlamePath;
       this.loading = response.data.loading;
     });

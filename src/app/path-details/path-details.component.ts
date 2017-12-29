@@ -3,8 +3,7 @@ import { FlamePath } from '../models';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
-import { Apollo } from 'apollo-angular';
-import { SINGLE_PATH_QUERY, SinglePathQueryResponse } from '../graphql';
+import { PathService } from '../services/path/path.service';
 
 @Component({
   selector: 'app-path-details',
@@ -20,7 +19,7 @@ export class PathDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private apollo: Apollo
+    private pathService: PathService
   ) { }
 
   ngOnInit() {
@@ -31,19 +30,12 @@ export class PathDetailsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  getPath(): void {
+  private getPath(): void {
     this.sub = this.route.params.subscribe(params => {
-      this.apollo.watchQuery<SinglePathQueryResponse>({
-        query: SINGLE_PATH_QUERY,
-        variables: {
-          id: params['id']
-        }
-      }).valueChanges.subscribe((response) => {
+      this.pathService.getPath(params['id']).valueChanges.subscribe((response) => {
         this.path = response.data.FlamePath;
         this.loading = response.data.loading;
       });
     });
   }
-
-
 }

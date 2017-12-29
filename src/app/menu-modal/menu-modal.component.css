@@ -26,3 +26,7 @@
 .modal-content a:hover{
   color: #FFF
 }
+
+a.is-active{
+  color:#FFF !important;
+}

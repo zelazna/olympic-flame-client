@@ -1,8 +1,15 @@
 <div class="menu">
   <p class="left" (click)="toggleModal()">Menu Left</p>
   <ul class="right menu">
-    <li><a routerLink="/share">partager</a></li>
-    <li><a routerLink="/vote">voter</a></li>
+    <li>
+      <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:true}">Evenements</a>
+    </li>
+    <li>
+      <a routerLink="/share" routerLinkActive="is-active">partager</a>
+    </li>
+    <li>
+      <a routerLink="/vote" routerLinkActive="is-active">voter</a>
+    </li>
     <li (click)="toggleModal()">menu</li>
   </ul>
 </div>

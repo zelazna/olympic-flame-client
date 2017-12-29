@@ -16,7 +16,7 @@ import { PathDetailsComponent } from './path-details/path-details.component';
 import { routing } from './app-routing';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { PathIntroComponent } from './path-intro/path-intro.component';
-
+import { PathService } from './services/path/path.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { PathIntroComponent } from './path-intro/path-intro.component';
     HttpLinkModule,
     routing
   ],
-  providers: [],
+  providers: [PathService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
