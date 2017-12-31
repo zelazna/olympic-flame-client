@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { ALL_PATH_QUERY, SINGLE_PATH_QUERY, SinglePathQueryResponse, AllPathQueryResponse } from '../../graphql';
+import {
+  ALL_PATH_QUERY,
+  SINGLE_PATH_QUERY,
+  PATH_DETAILS,
+  SinglePathQueryResponse,
+  AllPathQueryResponse,
+  PathDetailsQueryResponse
+} from '../../graphql';
 
 @Injectable()
 export class PathService {
@@ -16,6 +23,15 @@ export class PathService {
   getPath(id: number) {
     return this.apollo.watchQuery<SinglePathQueryResponse>({
       query: SINGLE_PATH_QUERY,
+      variables: {
+        id
+      }
+    });
+  }
+
+  getPathDetails(id: number) {
+    return this.apollo.watchQuery<PathDetailsQueryResponse>({
+      query: PATH_DETAILS,
       variables: {
         id
       }

@@ -30,4 +30,23 @@ export interface SinglePathQueryResponse {
   loading: boolean;
 }
 
+export const PATH_DETAILS = gql`
+query($id: ID!){
+  FlamePath(id: $id) {
+    id
+    name
+    description
+    torch {
+			id
+    }
+		points{
+			lat
+			long
+		}
+  }
+}
+`;
 
+export interface PathDetailsQueryResponse {
+  FlamePath: FlamePath;
+}

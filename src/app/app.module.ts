@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, Apollo } from 'apollo-angular';
@@ -17,6 +18,8 @@ import { routing } from './app-routing';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { PathIntroComponent } from './path-intro/path-intro.component';
 import { PathService } from './services/path/path.service';
+import { MoreComponent } from './more/more.component';
+import { DrawerComponent } from './drawer/drawer.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +32,12 @@ import { PathService } from './services/path/path.service';
     PathDetailsComponent,
     BreadcrumbComponent,
     PathIntroComponent,
+    MoreComponent,
+    DrawerComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule, // provides HttpClient for HttpLink
     ApolloModule,
     HttpLinkModule,

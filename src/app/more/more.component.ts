@@ -1,19 +1,17 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FlamePath } from '../models';
+import { PathService } from '../services/path/path.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { PathService } from '../services/path/path.service';
 
 @Component({
-  selector: 'app-path-details',
-  templateUrl: './path-details.component.html',
-  styleUrls: ['./path-details.component.css']
+  selector: 'app-more',
+  templateUrl: './more.component.html',
+  styleUrls: ['./more.component.css']
 })
-export class PathDetailsComponent implements OnInit, OnDestroy {
+export class MoreComponent implements OnInit, OnDestroy {
   path: FlamePath;
-  id: number;
   sub: Subscription;
-  loading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,9 +28,8 @@ export class PathDetailsComponent implements OnInit, OnDestroy {
 
   private getPath(): void {
     this.sub = this.route.params.subscribe(params => {
-      this.pathService.getPath(params['id']).valueChanges.subscribe((response) => {
+      this.pathService.getPathDetails(params['id']).valueChanges.subscribe((response) => {
         this.path = response.data.FlamePath;
-        this.loading = response.data.loading;
       });
     });
   }

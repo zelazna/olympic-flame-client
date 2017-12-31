@@ -21,7 +21,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  color: inherit;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -33,6 +34,7 @@ body {
   background-color: black;
   color: white;
   font-family: Montserrat;
+  overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -50,3 +52,6 @@ table {
 	border-spacing: 0;
 }
 
+a:hover{
+  color: rgb(76, 139, 221)
+}
