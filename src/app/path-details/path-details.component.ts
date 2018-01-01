@@ -7,7 +7,7 @@ import { PathService } from '../services/path/path.service';
 @Component({
   selector: 'app-path-details',
   templateUrl: './path-details.component.html',
-  styleUrls: ['./path-details.component.css']
+  styleUrls: ['./path-details.component.scss']
 })
 export class PathDetailsComponent implements OnInit, OnDestroy {
   path: FlamePath;

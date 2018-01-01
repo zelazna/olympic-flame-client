@@ -1,0 +1,17 @@
+@import './variables';
+@import './mixins';
+@import './reset';
+
+body{
+  background-color: black;
+  font-family: Montserrat
+}
+
+a{
+  color:#FFF;
+  &:hover{
+    color: rgb(53, 111, 236)
+  }
+}
+
+

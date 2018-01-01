@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-drawer',
   templateUrl: './drawer.component.html',
-  styleUrls: ['./drawer.component.css'],
+  styleUrls: ['./drawer.component.scss'],
   animations: [
     trigger('slideInOut', [
       state('in', style({
@@ -19,14 +19,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class DrawerComponent implements OnInit {
+  menuState = 'out';
+  @Output() drawerState: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
-  menuState = 'out';
 
   ngOnInit() {
   }
 
   toggleDrawer() {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
+    this.drawerState.emit(this.menuState);
   }
 }

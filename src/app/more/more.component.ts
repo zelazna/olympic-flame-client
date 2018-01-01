@@ -7,11 +7,12 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-more',
   templateUrl: './more.component.html',
-  styleUrls: ['./more.component.css']
+  styleUrls: ['./more.component.scss']
 })
 export class MoreComponent implements OnInit, OnDestroy {
   path: FlamePath;
   sub: Subscription;
+  isDrawerOpen: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +25,10 @@ export class MoreComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  private toggleScreen(event) {
+    this.isDrawerOpen = event === 'out' ? false : true;
   }
 
   private getPath(): void {

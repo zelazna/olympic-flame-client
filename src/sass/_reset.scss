@@ -31,9 +31,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  background-color: black;
-  color: white;
-  font-family: Montserrat;
   overflow-x: hidden;
 }
 ol, ul {
@@ -50,8 +47,4 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-a:hover{
-  color: rgb(76, 139, 221)
 }

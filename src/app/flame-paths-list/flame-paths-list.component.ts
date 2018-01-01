@@ -5,7 +5,7 @@ import { PathService } from '../services/path/path.service';
 @Component({
   selector: 'app-flame-paths-list',
   templateUrl: './flame-paths-list.component.html',
-  styleUrls: ['./flame-paths-list.component.css']
+  styleUrls: ['./flame-paths-list.component.scss']
 })
 export class FlamePathsListComponent implements OnInit {
   allPaths: FlamePath[] = [];
