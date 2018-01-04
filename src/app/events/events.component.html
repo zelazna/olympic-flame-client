@@ -2,6 +2,8 @@
   <h1>{{path.name}}</h1>
   <a routerLink="torch/{{path.torch.id}}">Voir la torche</a>
   <button (click)="drawer.toggleDrawer()">Voir le parcours Entier</button>
-  <app-drawer (drawerState)="toggleScreen($event)" #drawer></app-drawer>
+  <app-drawer [events]="path.events" (drawerState)="toggleScreen($event)" #drawer></app-drawer>
   <div class="screen" *ngIf="isDrawerOpen"></div>
+  <router-outlet></router-outlet>
+  <a *ngIf="!isLast()" routerLink="event/{{currentEventID+1}}">Anecdote Suivante</a>
 </div>

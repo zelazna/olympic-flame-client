@@ -10,7 +10,7 @@
   z-index: 999;
 }
 
-.drawer-content{
+.drawer-content, .drawer-content a{
   color:black;
 }
 
@@ -27,4 +27,8 @@
 
 .toggle-button:focus {
   outline: none;
+}
+
+.is-active{
+  color:blue !important;
 }

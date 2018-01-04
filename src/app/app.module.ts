@@ -18,8 +18,9 @@ import { routing } from './app-routing';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { PathIntroComponent } from './path-intro/path-intro.component';
 import { PathService } from './services/path/path.service';
-import { MoreComponent } from './more/more.component';
+import { EventsComponent } from './events/events.component';
 import { DrawerComponent } from './drawer/drawer.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ import { DrawerComponent } from './drawer/drawer.component';
     PathDetailsComponent,
     BreadcrumbComponent,
     PathIntroComponent,
-    MoreComponent,
+    EventsComponent,
     DrawerComponent,
+    EventDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,7 +31,7 @@ export class PathDetailsComponent implements OnInit, OnDestroy {
   private getPath(): void {
     this.sub = this.route.params.subscribe(params => {
       this.pathService.getPath(params['id']).valueChanges.subscribe((response) => {
-        this.path = response.data.FlamePath;
+        this.path = response.data.flamePath;
         this.loading = response.data.loading;
       });
     });

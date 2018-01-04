@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Event } from '../models';
 
 @Component({
   selector: 'app-drawer',
@@ -21,7 +22,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class DrawerComponent implements OnInit {
   menuState = 'out';
   @Output() drawerState: EventEmitter<string> = new EventEmitter<string>();
-
+  @Input() events: Event[];
   constructor() { }
 
   ngOnInit() {

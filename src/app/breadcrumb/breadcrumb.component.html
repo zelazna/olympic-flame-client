@@ -1,8 +1,8 @@
 <div class="breadcrumb-container">
   <div>
-    <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:true}">Home</a>
   </div>
   <div *ngFor="let path of allPaths">
-    <a routerLink="/home/detail/{{path.id}}" routerLinkActive="is-active">{{path.name}}</a>
+    <a routerLink="/detail/{{path.id}}" routerLinkActive="is-active">{{path.name}}</a>
   </div>
 </div>
