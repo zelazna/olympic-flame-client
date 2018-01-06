@@ -17,10 +17,11 @@ import { PathDetailsComponent } from './path-details/path-details.component';
 import { routing } from './app-routing';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { PathIntroComponent } from './path-intro/path-intro.component';
-import { PathService } from './services/path/path.service';
+import { PathService, TorchService } from './services';
 import { EventsComponent } from './events/events.component';
 import { DrawerComponent } from './drawer/drawer.component';
-import { EventDetailsComponent } from './event-details/event-details.component';
+import { TorchVotesComponent } from './torch-votes/torch-votes.component';
+import { TorchDetailsComponent } from './torch-details/torch-details.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     PathIntroComponent,
     EventsComponent,
     DrawerComponent,
-    EventDetailsComponent,
+    TorchVotesComponent,
+    TorchDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     HttpLinkModule,
     routing
   ],
-  providers: [PathService],
+  providers: [PathService, TorchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

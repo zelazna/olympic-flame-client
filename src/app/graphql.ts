@@ -1,4 +1,4 @@
-import { FlamePath, Event } from './models';
+import { FlamePath, Event, Torch } from './models';
 import gql from 'graphql-tag';
 
 export const ALL_PATH_QUERY = gql`
@@ -41,7 +41,9 @@ query($id: ID!){
     }
     events{
       id
-      title
+      description
+		  title
+		  location
     }
   }
 }
@@ -51,17 +53,17 @@ export interface PathDetailsQueryResponse {
   flamePath: FlamePath;
 }
 
-export const SINGLE_EVENT = gql`
-query($id: ID!){
-  event(id: $id) {
+export const ALL_TORCHS_QUERY = gql`
+query{
+  torchs {
     id
-		description
-		title
-		location
+    name
+    description
+    image_url
   }
 }
 `;
 
-export interface SingleEventQueryResponse {
-  event: Event;
+export interface AllTorchsQueryResponse {
+  torchs: Torch[];
 }

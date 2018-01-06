@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { PathDetailsComponent } from './path-details/path-details.component';
 import { PathIntroComponent } from './path-intro/path-intro.component';
 import { EventsComponent } from './events/events.component';
-import { EventDetailsComponent } from './event-details/event-details.component';
+import { TorchVotesComponent } from './torch-votes/torch-votes.component';
 
 const appRoutes: Routes = [
   {
@@ -19,15 +19,8 @@ const appRoutes: Routes = [
       }
     ]
   },
-  {
-    path: 'path/:id', component: EventsComponent,
-    children: [
-      {
-        path: 'event/:id',
-        component: EventDetailsComponent
-      }
-    ]
-  },
+  { path: 'path/:id', component: EventsComponent },
+  { path: 'vote', component: TorchVotesComponent },
   // otherwise redirect to root
   { path: '**', redirectTo: '' }
 ];

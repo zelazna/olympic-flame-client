@@ -21,8 +21,14 @@ import { Event } from '../models';
 })
 export class DrawerComponent implements OnInit {
   menuState = 'out';
-  @Output() drawerState: EventEmitter<string> = new EventEmitter<string>();
-  @Input() events: Event[];
+  @Output()
+  drawerState: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  selectedEvent: EventEmitter<Event> = new EventEmitter<Event>();
+  @Input()
+  events: Event[];
+  @Input()
+  currentEvent: Event;
   constructor() { }
 
   ngOnInit() {
@@ -31,5 +37,9 @@ export class DrawerComponent implements OnInit {
   toggleDrawer() {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
     this.drawerState.emit(this.menuState);
+  }
+
+  setCurrentEvent(event) {
+    this.selectedEvent.emit(event);
   }
 }

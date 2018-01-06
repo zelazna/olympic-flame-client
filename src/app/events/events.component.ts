@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FlamePath, Event } from '../models';
 import { PathService } from '../services/path/path.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -14,20 +14,13 @@ export class EventsComponent implements OnInit, OnDestroy {
   sub: Subscription;
   isDrawerOpen = false;
   events: Event[];
-  currentEventID = 0;
+  event: Event;
+  currentEventID = 1;
 
   constructor(
     private route: ActivatedRoute,
-    private pathService: PathService,
-    private router: Router
-  ) {
-    router.events.subscribe(routerEvent => {
-      if (routerEvent instanceof NavigationEnd) {
-        const eventID = routerEvent.url.split('/').slice(-1)[0];
-        this.currentEventID = parseInt(eventID, 10);
-      }
-    });
-  }
+    private pathService: PathService
+  ) { }
 
   ngOnInit() {
     this.getPath();
@@ -37,13 +30,18 @@ export class EventsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  nextEvent() {
-    this.currentEventID = this.currentEventID + 1;
-    this.router.navigate([`path/${this.path.id}/event/${this.currentEventID}`]);
-  }
-
   isLast() {
     return this.currentEventID >= this.events.length;
+  }
+
+  setCurrentEvent(event) {
+    this.event = event;
+    this.currentEventID = parseInt(event.id, 10);
+  }
+
+  nextEvent() {
+    this.currentEventID = this.currentEventID + 1;
+    this.event = this.findEvent();
   }
 
   private toggleScreen(event) {
@@ -55,8 +53,12 @@ export class EventsComponent implements OnInit, OnDestroy {
       this.pathService.getPathDetails(params['id']).valueChanges.subscribe((response) => {
         this.path = response.data.flamePath;
         this.events = this.path.events;
-        this.currentEventID = parseInt(this.events[0].id, 10);
+        this.event = this.findEvent();
       });
     });
+  }
+
+  private findEvent(): Event {
+    return this.events.find(e => parseInt(e.id, 10) === this.currentEventID);
   }
 }

@@ -1,0 +1,10 @@
+<div>
+  <h1>Place au vote</h1>
+</div>
+<div class="torch-container">
+  <ul>
+    <li *ngFor="let torch of torchs">
+      <app-torch-details [torch]=torch></app-torch-details>
+    </li>
+  </ul>
+</div>

@@ -3,7 +3,7 @@
   <div class="drawer-content">
     <h3>Parcours de la Flamme</h3>
     <ul>
-      <li *ngFor="let event of events"><a routerLink="event/{{event.id}}" routerLinkActive="is-active">{{event.title}}</a></li>
+      <li *ngFor="let event of events"><a [ngClass]="{'is-active': event.id==currentEvent.id}" (click)="setCurrentEvent(event)">{{event.title}}</a></li>
     </ul>
   </div>
 </div>

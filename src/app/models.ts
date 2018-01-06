@@ -12,3 +12,10 @@ export class Event {
   images_url?: string[];
   date?: Date;
 }
+
+export class Torch {
+  id?: string;
+  description?: string;
+  name?: string;
+  image_url?: string;
+}

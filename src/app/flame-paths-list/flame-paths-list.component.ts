@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlamePath } from '../models';
-import { PathService } from '../services/path/path.service';
+import { PathService } from '../services';
 
 @Component({
   selector: 'app-flame-paths-list',
